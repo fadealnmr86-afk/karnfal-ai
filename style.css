@@ -3,3 +3,5 @@
 
 /* Karnfal agent v3 */
 .reminder{border-color:#77517d}.draft{border:1px solid #665174;background:#22213f;border-radius:14px;padding:13px;margin:12px 0}.warning{color:#ffd0a4;font-size:12px}.draft .field{margin-bottom:10px}.draft input,.draft select{max-width:100%}textarea{width:100%;background:#12142e;color:var(--text);border:1px solid #494365;border-radius:12px;padding:12px;resize:vertical}.bottom button{min-width:0;flex:1}.bottom{gap:2px}.bottom button span{font-size:19px}
+
+.voice-controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.voice-controls .btn{flex:1;min-width:145px}#voiceStatus{min-height:1.5em;margin:10px 0 0}
