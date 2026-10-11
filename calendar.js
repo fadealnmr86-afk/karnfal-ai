@@ -19,7 +19,7 @@ const KarnfalCalendar=(()=>{
   const id=String(r.id||'record').replace(/[^a-zA-Z0-9-]/g,'').slice(0,90);
   const label=r.category==='bills'?'فاتورة':r.category==='appointments'?'موعد':'مهمة';
   const summary='كرنفل — '+label+': '+String(r.title||'بدون عنوان');
-  return ['BEGIN:VEVENT','UID:'+id+'@karnfal.local','DTSTAMP:'+stamp,'DTSTART:'+utc(start),'DTEND:'+utc(end),'SUMMARY:'+clean(summary),'DESCRIPTION:'+clean('أُنشئ من كرنفل AI. بعد تغيير الموعد داخل كرنفل يجب تحديث حدث التقويم يدوياً.'),
+  return ['BEGIN:VEVENT','UID:'+id+'@karnfal.local','DTSTAMP:'+stamp,'DTSTART:'+utc(start),'DTEND:'+utc(end),'SUMMARY:'+clean(summary),'DESCRIPTION:'+clean('أُنشئ من كرنفل AI. بعد تغيير الموعد داخل كرنفل يجب تحديث حدث التقويم يدوياً.'),...(r.category==='bills'&&r.recurrence==='شهرياً'?['RRULE:FREQ=MONTHLY;BYMONTHDAY='+Number(r.monthlyDay||date.slice(8,10))]:[]),
    'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+clean('بعد 3 أيام: '+summary),'TRIGGER:-P3D','END:VALARM',
    'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+clean('اليوم: '+summary),'TRIGGER:PT0S','END:VALARM','END:VEVENT'].join('\r\n');
  }
